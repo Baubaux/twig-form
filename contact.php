@@ -32,24 +32,26 @@ if ($_POST) {
         $errors['email'] = 'merci de renseigner ce champ';
     } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
         $errors['email'] = 'merci de renseigner un email valide';
-    } elseif (strlen($_POST['subject']) > 190) {
-        $errors['subject'] = "merci de renseigner un sujet dont la longueur ne dépasse pas {$maxLength} caractères";
+    } elseif (strlen($_POST['email']) >= 190) {
+        $errors['email'] = "merci de renseigner un email dont la longueur ne dépasse pas {$maxLength} caractères";
     }
 
+    $minLenght = 3;
     $maxLength = 190;
 
     if (empty($_POST['subject'])) {
         $errors['subject'] = 'merci de renseigner ce champ';
-    } elseif (strlen($_POST['subject']) > 190) {
-        $errors['subject'] = "merci de renseigner un sujet dont la longueur ne dépasse pas {$maxLength} caractères";
+    } elseif (strlen($_POST['subject']) <= 3 || strlen($_POST['subject']) >= 190) {
+        $errors['subject'] = "merci de renseigner un sujet dont la longueur soit comprise entre {$minLenght} et {$maxLength} caractères";
     }
 
+    $minLenght = 3;
     $maxLengthMessage = 1000;
 
     if (empty($_POST['message'])) {
         $errors['message'] = 'merci de renseigner ce champ';
-    } elseif (strlen($_POST['message']) > 1000) {
-        $errors['message'] = "merci de renseigner un sujet dont la longueur ne dépasse pas {$maxLengthMessage} caractères";
+    } elseif (strlen($_POST['message']) <= 3 || strlen($_POST['message']) >= 1000) {
+        $errors['message'] = "merci de renseigner un sujet dont la longueur soit comprise entre {$minLenght} et {$maxLengthMessage} caractères";
     } elseif (preg_match('/^[a-zA-Z]+$/', $_POST['message']) === 0) {
         $errors['message'] = 'merci de renseigner un login composé uniquement de lettres de l\'alphabet sans accent';
     }
