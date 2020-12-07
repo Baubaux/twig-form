@@ -1,0 +1,24 @@
+Étapes
+1.composer
+2.var-dumper
+3.twig
+4.bootstrap
+5.validation du form
+6.swiftmailer (facultatif)
+
+Formulaire
+- email expéditeur : input email, max 190 caractères
+- sujet : input text, max 190 caractères
+- message : textarea, max 1000 caractères, pas de html
+
+Livraison
+- composer.json, composer.lock
+- contact.php
+- templates/contact.html.twig
+
+RegEx : '/<[^>]*>/'
+
+Références
+https://github.com/jibundeyare/php-basic-p7
+https://github.com/jibundeyare/cours/blob/master/twig.md
+https://github.com/jibundeyare/cours/blob/master/php-language-basic.md
